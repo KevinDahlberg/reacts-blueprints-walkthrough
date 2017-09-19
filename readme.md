@@ -7,7 +7,7 @@ Walkthrough of the code from the book ReactJS Blueprints.
 
 ## Exercises
 * Hello World
-*
+* Web Shop
 
 ## Setup
 1. Download the repo

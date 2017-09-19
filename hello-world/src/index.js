@@ -10,7 +10,7 @@ class Build extends Component {
     return (
     <div>
       <App greeting="Hello World"/>
-      <AppState />
+      <AppState greeting="Let's Bind Some Values"/>
     </div>
     )
   }
