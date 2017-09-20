@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 
-const Footer = React createClass({
+const Footer = React.createClass({
   render() {
     return (
       <footer className="footer text-center">

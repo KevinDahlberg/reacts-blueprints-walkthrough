@@ -1,8 +1,8 @@
 'use strict';
 import React from 'react';
-import { Nav, NavItem, Navbar, Button };
+import { Nav, NavItem, Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router';
-import { LinkContainer } from 'react-router-bootstrap':
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Menu = React.createClass ({
   render() {
@@ -12,7 +12,7 @@ const Menu = React.createClass ({
           <Navbar.Brand>
             <Link to="/">My webshop</Link>
           </Navbar.Brand>
-          </Navbar.Toggle />
+          <Navbar.Toggle />
         </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
@@ -33,7 +33,7 @@ const Menu = React.createClass ({
           <LinkContainer to="/checkout">
             <Button bsStyle="link">
               Your cart: {this.props.cart.length} items
-            </button>
+            </Button>
           </LinkContainer>
         </Nav>
       </Navbar.Collapse>

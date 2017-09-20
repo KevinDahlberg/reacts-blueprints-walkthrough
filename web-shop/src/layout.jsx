@@ -3,7 +3,7 @@
 import React from 'react';
 
 import Menu from './components/menu.jsx';
-import Footer from './components/footer';
+import Footer from './components/footer.jsx';
 
 const Layout = React.createClass ({
   render() {
