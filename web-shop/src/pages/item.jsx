@@ -1,11 +1,11 @@
 'use strict';
 import React from 'react';
 
-const Checkout = React.createClass ({
+const Item = React.createClass ({
   render() {
     return (
       <div />
     );
   }
 });
-module.exports = Checkout;
+module.exports = Item;
