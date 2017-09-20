@@ -1,10 +1,10 @@
 'use strict';
-import React from 'react';
-import { Grid, Row, Col, Jumpotron } from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
-const Home = React.createClass ({
+export default class Home extends Component {
   render() {
     return (
       <Grid>
@@ -33,5 +33,4 @@ const Home = React.createClass ({
       </Grid>
     );
   }
-});
-module.exports = Home;
+};

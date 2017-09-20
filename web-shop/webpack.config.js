@@ -1,6 +1,8 @@
 var webpack = require('webpack');
 
-module.exports = {
+module.exports =
+  {
+  devtool: 'eval-source-map',
   entry: __dirname + '/src/index.jsx',
   output: {
     path: __dirname + '/public/assets',

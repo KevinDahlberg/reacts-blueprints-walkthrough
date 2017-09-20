@@ -1,28 +1,28 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 import { Nav, NavItem, Navbar, Button } from 'react-bootstrap';
-import { Link } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const Menu = React.createClass ({
+export default class Menu extends Component {
   render() {
     return (
       <Navbar inverse fixedTop>
         <Navbar.Header>
           <Navbar.Brand>
-            <Link to="/">My webshop</Link>
+            <NavLink to="/" exact>My webshop</NavLink>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <LinkContainer eventKey={1} to="/company">
+          <LinkContainer to="/company">
             <Button bsStyle="link">
               About
             </Button>
           </LinkContainer>
 
-          <LinkContainer eventKey={2} to="/products">
+          <LinkContainer to="/products">
             <Button bsStyle="link">
               Products
             </Button>
@@ -40,5 +40,4 @@ const Menu = React.createClass ({
       </Navbar>
     );
   }
-});
-module.exports = Menu;
+};

@@ -1,7 +1,7 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-const Footer = React.createClass({
+export default class Footer extends Component {
   render() {
     return (
       <footer className="footer text-center">
@@ -11,5 +11,4 @@ const Footer = React.createClass({
       </footer>
     );
   }
-});
-module.exports = Footer;
+};

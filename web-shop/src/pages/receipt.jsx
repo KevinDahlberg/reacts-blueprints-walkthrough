@@ -1,11 +1,11 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-const Receipt = React.createClass ({
+export default class Receipt extends Component {
   render() {
     return (
       <div />
     );
   }
-});
+};
 module.exports = Receipt;

@@ -1,11 +1,10 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
-const Products = React.createClass ({
+export default class Products extends Component {
   render() {
     return (
       <div />
     );
   }
-});
-module.exports = Products;
+};

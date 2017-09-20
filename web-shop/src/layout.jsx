@@ -1,11 +1,11 @@
 'use strict';
 
-import React from 'react';
+import React, { Component } from 'react';
 
 import Menu from './components/menu.jsx';
 import Footer from './components/footer.jsx';
 
-const Layout = React.createClass ({
+export default class Layout extends Component {
   render() {
     return (
       <div>
@@ -20,4 +20,4 @@ const Layout = React.createClass ({
       </div>
     );
   }
-});
+};

@@ -1,8 +1,8 @@
 'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 
-const Company = React.createClass ({
+export default class Company extends Component {
     render() {
       return (
         <Grid>
@@ -21,5 +21,4 @@ const Company = React.createClass ({
         </Grid>
       );
     }
-});
-module.exports = Company;
+};
