@@ -8,4 +8,4 @@ const Products = React.createClass ({
     );
   }
 });
-module.exports = Products;
+module.exports = Checkout;
