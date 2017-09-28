@@ -1,3 +1,5 @@
+'use static'
+
 import { combineReducers } from 'redux'
 import {
   ADD_TO_CART
@@ -8,11 +10,12 @@ import {
 function cartOptions (state = {}, action) {
   switch (action.type) {
     case ADD_TO_CART:
-      return action.product
+      return { ...state, cart: [...state.cart, action.product] }
+      })
     case REMOVE_FROM_CART:
-      return action.product
+      return { ...state, cart: state.cart.filter(product => action.product !== product)}
     case CLEAR_CART:
-      return action
+      return { ...state, cart: []}
     default:
       return state
   }
