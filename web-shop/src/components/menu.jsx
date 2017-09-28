@@ -5,6 +5,11 @@ import { NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
 export default class Menu extends Component {
+
+  static defaultProps = {
+    cart: []
+  }
+
   render() {
     return (
       <Navbar inverse fixedTop>

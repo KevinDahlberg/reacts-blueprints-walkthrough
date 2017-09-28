@@ -20,12 +20,6 @@ export default class Layout extends Reflux.Component {
     return (
       <div>
         <Menu />
-
-          { React.cloneElement (
-            this.props.children,
-            this.state
-          )}
-
         <Footer />
       </div>
     );
