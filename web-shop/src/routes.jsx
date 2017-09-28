@@ -5,11 +5,9 @@ import { Provider } from 'react-redux'
 import Layout from './layout.jsx';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHashHistory from 'history/createHashHistory'
-import storeConfig from './storeConfig'
-const store = storeConfig()
 
 //Routes
-import Products from './pages/products.jsx';
+import Products from './containers/products';
 import Home from './pages/home.jsx';
 import Company from './pages/company.jsx';
 import Item from './pages/item.jsx';
@@ -17,6 +15,7 @@ import Checkout from './pages/checkout.jsx';
 import Receipt from './pages/receipt.jsx';
 
 const history = createHashHistory();
+
 const Routes = ({store}) => (
   <Provider store={store}>
     <Router history={ history }>
