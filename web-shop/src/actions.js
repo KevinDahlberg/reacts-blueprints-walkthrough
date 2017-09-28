@@ -4,6 +4,8 @@ import fetch from 'isomorphic-fetch'
 export const ADD_TO_CART = 'ADD_TO_CART'
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART'
 export const CLEAR_CART = 'CLEAR_CART'
+export const REQUEST_PRODUCTS = 'REQUEST_PRODUCTS'
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
 
 export function addToCart (product) {
   return {
@@ -25,17 +27,24 @@ export function clearCart () {
   }
 }
 
+function requestProducts () {
+  return {
+    type: REQUEST_PRODUCTS
+  }
+}
+
 function receiveProducts(json) {
   return {
-    type: RECEIVE_POSTS,
+    type: RECEIVE_PRODUCTS,
     products: json.data.children.map(child => child.data)
   }
 }
 
 export function fetchProducts() {
   return dispatch => {
+    dispatch(requestProducts())
     return fetch('../products.json')
-    .then((response => response.json())
+    .then(response => response.json())
     .then(json => dispatch(receiveProducts(json)))
   }
 }

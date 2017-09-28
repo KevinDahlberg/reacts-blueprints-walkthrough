@@ -1,7 +1,5 @@
 'use strict';
 import React, { Component } from 'react';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export default class Products extends Component {

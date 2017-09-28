@@ -1,13 +1,11 @@
 'use strict';
 import React, { Component } from 'react';
-import Reflux from 'reflux';
 import { Router, State } from 'react-router-dom';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
-import CartActions from "../actions/cart";
 import PropTypes from 'prop-types';
 
 
-export default class Item extends Reflux.Component {
+export default class Item extends Component {
   constructor(props) {
     super(props);
     this.state = {};
