@@ -2,14 +2,13 @@
 
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
 import { fetchProducts } from '../actions'
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 
 //import components here
 
-class Products extends Component {
+export default class Products extends Component {
   constructor(props) {
     super(props)
 
@@ -18,7 +17,7 @@ class Products extends Component {
     }
 
   componentDidMount() {
-    const { dispatch, products } = this.props
+    const { dispatch } = this.props
     dispatch(fetchProducts())
   }
 
@@ -105,9 +104,10 @@ class MainOffering extends Component {
 }
 
 class RibbonOffering extends Component {
+
   static Proptypes = {
-    productData: React.PropTypes.object
-  }
+      productData: PropTypes.object
+    }
 
   render() {
     const title = Object.keys(this.props.productData);

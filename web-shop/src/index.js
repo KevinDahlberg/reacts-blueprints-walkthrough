@@ -1,12 +1,8 @@
-'use strict'
-
-import React, { Component } from 'react';
-import Router from 'react-router-dom';
-import Routes from './routes.jsx';
+import React from 'react';
+import App from './components/App.jsx';
 import { render } from 'react-dom';
-import '../public/products.json';
 
 render (
-  <Routes />,
+  <App />,
   document.getElementById('root')
 );

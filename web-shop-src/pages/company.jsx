@@ -1,4 +1,3 @@
-'use strict';
 import React, { Component } from 'react';
 import { Grid, Row, Col, Panel } from 'react-bootstrap';
 

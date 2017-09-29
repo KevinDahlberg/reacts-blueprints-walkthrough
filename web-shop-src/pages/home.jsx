@@ -1,4 +1,3 @@
-'use strict';
 import React, { Component } from 'react';
 import { Grid, Row, Col, Jumbotron, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';

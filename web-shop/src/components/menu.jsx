@@ -1,14 +1,9 @@
-'use strict';
 import React, { Component } from 'react';
 import { Nav, NavItem, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 
 export default class Menu extends Component {
-
-  static defaultProps = {
-    cart: []
-  }
 
   render() {
     return (
@@ -37,7 +32,7 @@ export default class Menu extends Component {
         <Nav pullRight>
           <LinkContainer to="/checkout">
             <Button bsStyle="link">
-              Your cart: {this.props.cart.length} items
+              Your cart: items
             </Button>
           </LinkContainer>
         </Nav>

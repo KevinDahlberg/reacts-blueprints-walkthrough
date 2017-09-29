@@ -1,4 +1,3 @@
-'use strict';
 import React, { Component } from 'react';
 import { Router, State } from 'react-router-dom';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
@@ -46,7 +45,7 @@ export default class Item extends Component {
 
 class ProductInfo extends Component {
   static PropTypes = {
-    productData: React.PropTypes.object
+    productData: PropTypes.object
   }
 
   render() {
@@ -72,9 +71,7 @@ class ProductInfo extends Component {
             </p>
 
             <p>
-              <Button bsSize="large"
-                onClick={CartActions.AddToCart.
-                bind(null, this.props.productData)}>
+              <Button bsSize="large">
                 Add to cart
               </Button>
             </p>

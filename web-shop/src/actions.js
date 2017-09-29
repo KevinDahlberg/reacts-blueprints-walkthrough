@@ -1,4 +1,3 @@
-'use strict'
 import fetch from 'isomorphic-fetch'
 
 export const ADD_TO_CART = 'ADD_TO_CART'
