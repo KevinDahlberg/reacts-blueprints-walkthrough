@@ -6,6 +6,8 @@ import Layout from './layout.jsx';
 import { Router, Route, Switch } from 'react-router-dom';
 import createHashHistory from 'history/createHashHistory'
 
+import storeConfig from './storeConfig'
+
 //Routes
 import Products from './containers/products';
 import Home from './pages/home.jsx';
@@ -15,8 +17,9 @@ import Checkout from './pages/checkout.jsx';
 import Receipt from './pages/receipt.jsx';
 
 const history = createHashHistory();
+const store = storeConfig();
 
-const Routes = ({store}) => (
+const Routes = () => (
   <Provider store={store}>
     <Router history={ history }>
       <Route handler={ Layout }>

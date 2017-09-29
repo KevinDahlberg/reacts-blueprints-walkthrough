@@ -12,51 +12,35 @@ import { NavLink } from 'react-router-dom';
 class Products extends Component {
   constructor(props) {
     super(props)
+
     this.handleChange = this.handleCHange.bind(this)
     this.handleRefreshClick = this.handleRefreshClick.bind(this)
-  }
+    }
 
   componentDidMount() {
     const { dispatch, products } = this.props
     dispatch(fetchProducts())
   }
 
-  static defaultProps = {
-    products: {
-      main_offerings: [],
-      sale_offerings: []
-    }
-  }
-
-  static PropTypes =  {
-    products: PropTypes.object
-  }
-
   render() {
     return (
       <Grid>
-        <Offerings productData={this.props.products.main_offerings}
-        type={"main"} maxProducts={1}/>
-        <Offerings productData=
-        {this.props.products.sale_offerings}
-        type={"ribbon"} maxProducts={3}/>
+
       </Grid>
-    );
+    )
   }
-};
+}
+
+Products.PropTypes =  {
+    products: PropTypes.object
+  }
 
 class Offerings extends Component {
-  static PropTypes = {
-    type: PropTypes.oneOf(['main', 'ribbon']),
-    maxProducts: PropTypes.number,
-    productData: PropTypes.array
-  }
 
   static defaultProps = {
     type: 'main',
     maxProducts: 3
   }
-
   render() {
     let productData = this.props.productData.filter((data, idx) => {
       {

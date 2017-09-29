@@ -4,7 +4,9 @@ import { combineReducers } from 'redux'
 import {
   ADD_TO_CART,
   REMOVE_FROM_CART,
-  CLEAR_CART
+  CLEAR_CART,
+  REQUEST_PRODUCTS,
+  RECEIVE_PRODUCTS
 } from './actions'
 
 function cartOptions (state = {}, action) {
@@ -20,8 +22,20 @@ function cartOptions (state = {}, action) {
   }
 }
 
+function productOptions (state = {}, action) {
+  switch (action.type) {
+    case REQUEST_PRODUCTS:
+      return state
+    case RECEIVE_PRODUCTS:
+      return { ...state, products: action.products}
+    default:
+      return state
+  }
+}
+
 const rootReducer = combineReducers({
-  cartOptions
+  cartOptions,
+  productOptions
 })
 
 export default rootReducer
