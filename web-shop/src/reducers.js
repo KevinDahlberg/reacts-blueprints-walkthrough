@@ -6,7 +6,8 @@ import {
   REMOVE_FROM_CART,
   CLEAR_CART,
   REQUEST_PRODUCTS,
-  RECEIVE_PRODUCTS
+  RECEIVE_PRODUCTS,
+  SAVE_ADDRESS
 } from './actions'
 
 function cartOptions (state = {}, action) {

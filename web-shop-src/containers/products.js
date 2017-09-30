@@ -1,6 +1,5 @@
-'use static'
-
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchProducts } from '../actions'
 import { Grid, Row, Col, Button } from 'react-bootstrap';
@@ -12,25 +11,25 @@ export default class Products extends Component {
   constructor(props) {
     super(props)
 
-    this.handleChange = this.handleCHange.bind(this)
-    this.handleRefreshClick = this.handleRefreshClick.bind(this)
     }
 
   componentDidMount() {
-    const { dispatch } = this.props
+    const { dispatch, products } = this.props
     dispatch(fetchProducts())
   }
 
   render() {
     return (
       <Grid>
-
+        <p>
+          {this.props.products}
+        </p>
       </Grid>
     )
   }
 }
 
-Products.PropTypes =  {
+Products.propTypes =  {
     products: PropTypes.object
   }
 
@@ -40,6 +39,7 @@ class Offerings extends Component {
     type: 'main',
     maxProducts: 3
   }
+
   render() {
     let productData = this.props.productData.filter((data, idx) => {
       {
