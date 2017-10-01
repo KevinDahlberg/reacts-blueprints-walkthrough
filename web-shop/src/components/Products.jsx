@@ -1,19 +1,29 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col, Button } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { NavLink } from 'react-router'
+import { NavLink } from 'react-router-dom'
 import PropTypes from 'prop-types'
 //import actions eventually
 
 export default class Products extends Component {
 
   static propTypes = {
-    products: PropTyes.object
+    products: PropTypes.object
   }
 
-  static defaultProps = {
+  state = {
       products: {
-        main_offerings: [],
+        main_offerings: [
+          {
+            "World's best novel": {
+              "SKU": "NOV",
+              "price": "$21.90",
+              "savings": "24% off",
+              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              "image": "http://placehold.it/{size}&text=The Novel"
+            }
+          }
+        ],
         sale_offerings: []
     }
   }
@@ -22,11 +32,11 @@ export default class Products extends Component {
     return(
       <Grid>
         <Offerings
-          productData = {this.props.products.main_offering}
+          productData = {this.state.products.main_offerings}
           type={"main"}
           maxProducts={1}
         />
-        <Offerings productData={this.props.products.sale_offerings}
+        <Offerings productData={this.state.products.sale_offerings}
           type={"ribbon"}
           maxProducts={3}
         />
@@ -47,25 +57,26 @@ class Offerings extends Component {
   }
 
   render() {
-    let productData = this.props.productData
-    .filter((data, idx) => {
-      return idx < this.props.maxproducts
+    const { type, maxProduct, productData } = this.props
+
+    const _productData = this.props.productData.filter((data, idx) => {
+      return idx < this.props.maxProducts
     })
     .map((data, idx) => {
       if(this.props.type==="main"){
         return
         <MainOffering
-          {...this.props} key={"main"+idx}
+          key={"main"+idx}
           productData={data}/>
       }
       if(this.props.type === "ribbon"){
         return
         <RibbonOffering
-          {...this.props} key={idx}
+          key={idx}
           productData={data}/>
       }
     })
-    return <Row>{productData}</Row>
+    return <Row>{_productData}</Row>
   }
 }
 
@@ -75,6 +86,7 @@ class MainOffering extends Component {
   }
 
   render() {
+    const { productData } = this.props
     const title = Object.keys(this.props.productData)
     if(this.props.productData){
       return (
@@ -85,7 +97,7 @@ class MainOffering extends Component {
             </p>
           </Col>
           <Col md={9} sm={8} xs={12}>
-            <NavLink to={"/item"+this.props.productData[title].SKU}
+            <NavLink to={"/item"+this.props.productData[title].SKU}>
               <h4>{title}</h4>
             </NavLink>
             <p>
@@ -98,9 +110,7 @@ class MainOffering extends Component {
             </p>
             <p>
               <Button bsSize="large"
-                onClick={
-                  //action to add to cart
-                }>
+                >
                 Add to Cart
               </Button>
             </p>
@@ -119,11 +129,12 @@ class RibbonOffering extends Component {
   }
 
   render() {
+    const { productData } = this.props
     const title = Object.keys(this.props.productData)
     return this.props.productData[title] ?
       (
         <Col md={4} sm={4} xs={12}>
-          <Col xs={12}
+          <Col xs={12}>
             <p>
               <img src={this.props.productData[title].image.replace("{size}","170x80")}/>
             </p>
@@ -144,8 +155,7 @@ class RibbonOffering extends Component {
           </p>
 
           <p>
-            <Button bsSize="small"
-              onClick={CartActions.AddToCart.bind(null, this.props.productData)}>
+            <Button bsSize="small">
               Add to cart
             </Button>
           </p>
