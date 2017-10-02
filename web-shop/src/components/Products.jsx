@@ -11,19 +11,9 @@ export default class Products extends Component {
     products: PropTypes.object
   }
 
-  state = {
+  static defaultProps = {
       products: {
-        main_offerings: [
-          {
-            "World's best novel": {
-              "SKU": "NOV",
-              "price": "$21.90",
-              "savings": "24% off",
-              "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-              "image": "http://placehold.it/{size}&text=The Novel"
-            }
-          }
-        ],
+        main_offerings: [],
         sale_offerings: []
     }
   }
@@ -32,11 +22,11 @@ export default class Products extends Component {
     return(
       <Grid>
         <Offerings
-          productData = {this.state.products.main_offerings}
+          productData = {this.props.products.main_offerings}
           type={"main"}
           maxProducts={1}
         />
-        <Offerings productData={this.state.products.sale_offerings}
+        <Offerings productData={this.props.products.sale_offerings}
           type={"ribbon"}
           maxProducts={3}
         />
@@ -57,8 +47,6 @@ class Offerings extends Component {
   }
 
   render() {
-    const { type, maxProduct, productData } = this.props
-
     const _productData = this.props.productData.filter((data, idx) => {
       return idx < this.props.maxProducts
     })
@@ -86,7 +74,6 @@ class MainOffering extends Component {
   }
 
   render() {
-    const { productData } = this.props
     const title = Object.keys(this.props.productData)
     if(this.props.productData){
       return (
